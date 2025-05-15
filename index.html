@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Newtons Ai Hospitals, Dr. Shiva Kolli MBBS | founder of Newtons Ai. Discover how our AI-powered hospital is revolutionizing healthcare with intelligent systems for diagnosis, treatment, and patient care.">
+    <title>Newtons Ai Hospitals | Dr. Shiva Kolli MBBS | founder of Newtons Ai | Revolutionizing Healthcare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Light Theme Colors */
+            --bg-light: #F9FAFB; /* Slightly off-white for a softer look */
+            --surface-light: #FFFFFF;
+            --text-primary-light: #1F2937; /* Darker gray for strong readability */
+            --text-secondary-light: #6B7280; /* Medium gray for less emphasis */
+            --heading-light: #111827; /* Near black for headings */
+            --border-light: #E5E7EB;
+            --shadow-color-light-rgb: 0, 0, 0; /* For rgba shadows */
+            --primary-color-light: #2563EB; /* A modern, accessible blue */
+            --secondary-color-light: #10B981; /* A vibrant green/teal */
+
+            /* Dark Theme Colors */
+            --bg-dark: #111827; /* Dark blue-gray */
+            --surface-dark: #1F2937; /* Slightly lighter surface for cards */
+            --text-primary-dark: #F3F4F6; /* Off-white for text */
+            --text-secondary-dark: #9CA3AF; /* Lighter gray for secondary text */
+            --heading-dark: #FFFFFF;
+            --border-dark: #374151;
+            --shadow-color-dark-rgb: 0, 0, 0; /* For rgba shadows in dark mode, often less intense or different color */
+            --primary-color-dark: #3B82F6; /* Brighter blue for dark mode contrast */
+            --secondary-color-dark: #14B8A6; /* Brighter teal for dark mode */
+
+            /* Default Theme Variables (Initially Light) */
+            --app-bg: var(--bg-light);
+            --app-surface: var(--surface-light);
+            --app-text-primary: var(--text-primary-light);
+            --app-text-secondary: var(--text-secondary-light);
+            --app-heading: var(--heading-light);
+            --app-border: var(--border-light);
+            --app-shadow-color-rgb: var(--shadow-color-light-rgb);
+            --app-primary: var(--primary-color-light);
+            --app-secondary: var(--secondary-color-light);
+
+            /* UI Elements */
+            --card-shadow: 0 4px 6px -1px rgba(var(--app-shadow-color-rgb), 0.1), 0 2px 4px -1px rgba(var(--app-shadow-color-rgb), 0.06);
+            --card-hover-shadow: 0 10px 15px -3px rgba(var(--app-shadow-color-rgb), 0.1), 0 4px 6px -2px rgba(var(--app-shadow-color-rgb), 0.05);
+            --button-shadow: 0 1px 3px 0 rgba(var(--app-shadow-color-rgb), 0.1), 0 1px 2px 0 rgba(var(--app-shadow-color-rgb), 0.06);
+            
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 16px;
+
+            --transition-fast: all 0.2s ease-in-out;
+            --transition-std: all 0.3s ease-in-out;
+
+            --section-spacing: 100px;
+            --container-padding: 20px;
+        }
+
+        body.dark-theme {
+            --app-bg: var(--bg-dark);
+            --app-surface: var(--surface-dark);
+            --app-text-primary: var(--text-primary-dark);
+            --app-text-secondary: var(--text-secondary-dark);
+            --app-heading: var(--heading-dark);
+            --app-border: var(--border-dark);
+            --app-shadow-color-rgb: var(--shadow-color-dark-rgb); /* This might need adjustment for dark mode visuals */
+            --app-primary: var(--primary-color-dark);
+            --app-secondary: var(--secondary-color-dark);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--app-bg);
+            color: var(--app-text-primary);
+            transition: background-color var(--transition-std), color var(--transition-std);
+            overflow-x: hidden;
+            line-height: 1.7; /* Increased for better readability */
+            min-height: 100vh;
+            font-size: 16px; /* Standard base font size */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--app-heading);
+            line-height: 1.3;
+            margin-top: 0;
+            margin-bottom: 0.75em; /* Consistent bottom margin for headings */
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1.25em;
+            color: var(--app-text-secondary);
+        }
+        
+        a {
+            color: var(--app-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        a:hover {
+            color: var(--app-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure header is on top */
+            background-color: rgba(var(--surface-light-rgb, 255, 255, 255), 0.85); /* Fallback for light */
+            backdrop-filter: blur(12px) saturate(180%);
+            box-shadow: 0 1px 2px 0 rgba(var(--app-shadow-color-rgb), 0.05);
+            transition: background-color var(--transition-std), box-shadow var(--transition-std);
+        }
+        body.dark-theme header {
+            background-color: rgba(var(--bg-dark-rgb, 17, 24, 39), 0.85); /* Use RGB from --bg-dark */
+        }
+        /* Helper to extract RGB from hex if needed, or set directly */
+        :root {
+            --surface-light-rgb: 255, 255, 255;
+            --bg-dark-rgb: 17, 24, 39;
+        }
+
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px; /* Slightly reduced header height */
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.75rem; /* Adjusted size */
+            color: var(--app-primary); /* Use themed primary color */
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--app-text-primary); /* Use themed text color */
+            font-weight: 500;
+            position: relative;
+            padding: 8px 4px; /* Added horizontal padding for better touch */
+            transition: color var(--transition-fast);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--app-primary);
+            transition: width var(--transition-fast);
+        }
+
+        nav a:hover {
+            color: var(--app-primary);
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid transparent; /* For consistent sizing */
+            color: var(--app-text-secondary);
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 8px;
+            border-radius: var(--border-radius-md);
+            transition: color var(--transition-fast), background-color var(--transition-fast);
+        }
+        .theme-toggle:hover {
+            color: var(--app-primary);
+            background-color: rgba(var(--app-primary-rgb, 37, 99, 235), 0.1);
+        }
+        /* Helper for --app-primary-rgb */
+        :root {
+            --primary-color-light-rgb: 37, 99, 235;
+            --primary-color-dark-rgb: 59, 130, 246;
+            --app-primary-rgb: var(--primary-color-light-rgb);
+        }
+        body.dark-theme {
+             --app-primary-rgb: var(--primary-color-dark-rgb);
+        }
+
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--app-text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            min-height: 100vh; /* Use min-height for flexibility */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center content */
+            color: var(--app-heading); /* Default to heading color for light */
+            overflow: hidden;
+            padding-top: 80px; /* Account for fixed header */
+            text-align: center;
+        }
+
+        /* Light mode hero background */
+        body:not(.dark-theme) #hero {
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(var(--primary-color-light-rgb), 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(var(--secondary-color-light-rgb), 0.1) 0%, transparent 50%);
+            background-color: var(--app-bg);
+            color: var(--app-heading);
+        }
+        /* Dark mode hero background */
+        body.dark-theme #hero {
+             background-image:
+                radial-gradient(circle at 15% 25%, rgba(var(--primary-color-dark-rgb), 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 85% 75%, rgba(var(--secondary-color-dark-rgb), 0.15) 0%, transparent 60%);
+            background-color: var(--app-bg);
+            color: var(--app-heading);
+        }
+        /* Helper for secondary colors RGB */
+        :root {
+            --secondary-color-light-rgb: 16, 185, 129;
+            --secondary-color-dark-rgb: 20, 184, 166;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px; /* Slightly reduced for tighter focus */
+            padding: 0 var(--container-padding);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive font size */
+            font-weight: 800;
+            margin-bottom: 0.5em;
+            line-height: 1.1;
+            color: var(--app-heading); /* Ensures it picks up theme */
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            margin-bottom: 0.75em;
+            font-weight: 400; /* Less heavy than title */
+            color: var(--app-text-secondary);
+        }
+        #dr-shiva-kolli {
+            font-size: clamp(1.75rem, 4vw, 2.25rem); /* Balanced size */
+            font-weight: 700;
+            color: var(--app-heading);
+            display: block; /* Ensure it's on its own line if needed */
+            margin-bottom: 0.25em;
+        }
+        #mbbs-founder {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-weight: 500;
+            color: var(--app-text-secondary);
+            display: block;
+        }
+
+
+        .hero-tagline {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 1.5em;
+            font-weight: 700;
+            color: var(--app-primary); /* Use themed primary for accent */
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 16px; /* Reduced gap */
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px; /* Adjusted padding */
+            border-radius: var(--border-radius-md);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-std);
+            cursor: pointer;
+            font-size: 1rem;
+            border: 2px solid transparent; /* Base border */
+            box-shadow: var(--button-shadow);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-hover-shadow); /* Use a more prominent shadow on hover */
+        }
+        .btn:active {
+            transform: translateY(0px);
+        }
+
+
+        .btn-primary {
+            background-color: var(--app-primary);
+            color: var(--surface-light); /* Text on primary button usually light */
+            border-color: var(--app-primary);
+        }
+        body.dark-theme .btn-primary {
+            color: var(--text-primary-dark); /* Ensure good contrast on dark primary */
+        }
+        .btn-primary:hover {
+            background-color: var(--app-secondary); /* Hover changes to secondary */
+            border-color: var(--app-secondary);
+            color: var(--surface-light); /* Text color on secondary */
+        }
+        body.dark-theme .btn-primary:hover {
+            color: var(--text-primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--app-primary);
+            border-color: var(--app-primary);
+        }
+        .btn-secondary:hover {
+            background-color: var(--app-primary);
+            color: var(--surface-light); /* Text on primary button usually light */
+        }
+        body.dark-theme .btn-secondary:hover {
+             color: var(--text-primary-dark);
+        }
+
+
+        /* Hero Decoration (floating circles) */
+        .hero-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0; /* Behind content */
+            pointer-events: none;
+        }
+        .hero-decoration::before,
+        .hero-decoration::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1; /* Softer effect */
+            animation: float 12s ease-in-out infinite alternate;
+        }
+        .hero-decoration::before {
+            width: clamp(200px, 30vw, 400px);
+            height: clamp(200px, 30vw, 400px);
+            background: var(--app-primary);
+            top: -10%; right: -15%;
+        }
+        .hero-decoration::after {
+            width: clamp(300px, 40vw, 600px);
+            height: clamp(300px, 40vw, 600px);
+            background: var(--app-secondary);
+            bottom: -15%; left: -20%;
+            animation-duration: 15s;
+            animation-direction: alternate-reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(15px, -10px) scale(1.05); }
+            100% { transform: translate(-10px, 15px) scale(0.95); }
+        }
+
+        /* Section Styling */
+        section {
+            padding: var(--section-spacing) 0;
+            position: relative;
+            overflow: hidden; /* Contain decorative elements */
+        }
+        #about { background-color: var(--app-bg); }
+        #ai-systems { background-color: var(--app-surface); }
+        #testimonials { background-color: var(--app-surface); }
+        #contact { background-color: var(--app-bg); }
+
+
+        .section-heading {
+            font-size: clamp(2rem, 5vw, 2.75rem); /* Responsive */
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+            position: relative;
+            color: var(--app-heading);
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px; /* Closer to text */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px; /* Shorter, more refined */
+            height: 4px; /* Thicker */
+            background: linear-gradient(to right, var(--app-primary), var(--app-secondary));
+            border-radius: var(--border-radius-sm);
+        }
+
+        .section-subheading {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            text-align: center;
+            max-width: 700px; /* Control width */
+            margin: 0 auto 48px; /* Adjusted margin */
+            color: var(--app-text-secondary);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center; /* Vertically align if image/text side-by-side */
+            gap: 48px; /* Space between text and image/stats */
+            justify-content: center; /* Center if single column */
+        }
+
+        .about-text {
+            flex: 1;
+            max-width: 800px; /* Control text width */
+            margin: 0 auto;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            text-align: center; /* Keep centered as per original */
+            line-height: 1.8; /* Slightly more spacing */
+            margin-bottom: 1.5em;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 24px;
+            margin-top: 40px;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 220px; /* Minimum width before wrapping */
+            max-width: 280px; /* Max width */
+            background-color: var(--app-surface);
+            border-radius: var(--border-radius-lg);
+            padding: 24px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: transform var(--transition-std), box-shadow var(--transition-std);
+            border: 1px solid var(--app-border);
+        }
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .stat-number {
+            font-size: 2.25rem;
+            font-weight: 700; /* Bold number */
+            color: var(--app-primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-weight: 500; /* Medium weight */
+            color: var(--app-text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* AI Systems Section */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive cards */
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .system-card {
+            background-color: var(--app-bg); /* Use app-bg if section is app-surface, or vice-versa */
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-std);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--app-border);
+        }
+        body.dark-theme .system-card {
+             background-color: var(--app-surface); /* If AI Systems is app-bg, cards can be surface */
+        }
+        #ai-systems.bg-surface .system-card { /* If section is surface */
+             background-color: var(--app-bg);
+        }
+        #ai-systems.bg-bg .system-card { /* If section is bg */
+             background-color: var(--app-surface);
+        }
+
+
+        .system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .system-card-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .system-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--app-heading);
+        }
+
+        .system-card-desc {
+            color: var(--app-text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .system-card-link {
+            color: var(--app-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto; /* Pushes link to bottom */
+            transition: color var(--transition-fast), transform var(--transition-fast);
+        }
+        .system-card-link:hover {
+            color: var(--app-secondary);
+            transform: translateX(4px);
+        }
+        .system-card-link i {
+            transition: transform var(--transition-fast);
+        }
+        .system-card-link:hover i {
+            transform: translateX(2px); /* Slight nudge for icon too */
+        }
+
+
+        /* Testimonials Section */
+        .testimonial-slider-container {
+            position: relative;
+            overflow: hidden; /* To hide parts of grid during scroll */
+            margin-top: 48px;
+        }
+
+        .testimonial-grid {
+            display: flex; /* For horizontal scrolling */
+            overflow-x: auto;
+            gap: 24px;
+            padding: 10px 0 20px; /* Padding for shadows and scrollbar */
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin; /* For Firefox */
+            scrollbar-color: var(--app-primary) transparent; /* For Firefox */
+        }
+        .testimonial-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+        .testimonial-grid::-webkit-scrollbar-track {
+            background: transparent; /* Or var(--app-surface) */
+        }
+        .testimonial-grid::-webkit-scrollbar-thumb {
+            background-color: var(--app-primary);
+            border-radius: 10px;
+            border: 2px solid transparent; /* Creates padding around thumb */
+        }
+
+        .testimonial-card {
+            flex: 0 0 clamp(280px, 80vw, 340px); /* Responsive card width */
+            scroll-snap-align: start;
+            background-color: var(--app-bg); /* Contrast with section background */
+            border-radius: var(--border-radius-lg);
+            padding: 24px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-std);
+            position: relative;
+            border: 1px solid var(--app-border);
+        }
+        #testimonials.bg-surface .testimonial-card {
+            background-color: var(--app-bg);
+        }
+         #testimonials.bg-bg .testimonial-card {
+            background-color: var(--app-surface);
+        }
+
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .quote-icon {
+            position: absolute;
+            color: rgba(var(--app-primary-rgb), 0.1);
+            top: 16px;
+            right: 16px;
+            font-size: 2.5rem; /* Slightly smaller */
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            color: var(--app-text-secondary);
+        }
+
+        .testimonial-person {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto; /* Push to bottom if card has varying text length */
+        }
+        .testimonial-info h4 {
+            margin: 0 0 2px 0; /* Reduced bottom margin */
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--app-heading);
+        }
+        .testimonial-info p {
+            margin: 0;
+            color: var(--app-text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--app-surface);
+            border: 1px solid var(--app-border);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(var(--app-shadow-color-rgb), 0.08);
+            transition: var(--transition-std);
+            color: var(--app-primary);
+        }
+        .slider-arrow:hover {
+            background-color: var(--app-primary);
+            color: var(--surface-light); /* Text color on primary button */
+            border-color: var(--app-primary);
+            box-shadow: 0 4px 12px rgba(var(--app-shadow-color-rgb), 0.12);
+        }
+        body.dark-theme .slider-arrow:hover {
+            color: var(--text-primary-dark);
+        }
+        .left-arrow { left: -15px; } /* Position slightly outside on larger screens */
+        .right-arrow { right: -15px; }
+
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 48px;
+            gap: 32px; /* Gap between info and buttons */
+        }
+
+        .contact-info {
+            max-width: 600px;
+            width: 100%;
+            background-color: var(--app-surface); /* Card-like background for info */
+            padding: 24px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--app-border);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start; /* Align icon with first line of text */
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .contact-item:last-child { margin-bottom: 0; }
+
+        .contact-icon {
+            font-size: 1.25rem; /* Slightly larger */
+            color: var(--app-primary);
+            background-color: rgba(var(--app-primary-rgb), 0.1); /* Subtle background */
+            padding: 10px;
+            border-radius: var(--border-radius-md);
+            width: 40px; /* Fixed width for alignment */
+            height: 40px; /* Fixed height */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-text h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--app-heading);
+        }
+        .contact-text p, .contact-text a {
+            margin: 0;
+            color: var(--app-text-secondary);
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+        .contact-text a:hover {
+            color: var(--app-primary);
+            text-decoration: underline;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap; /* Allow buttons to wrap */
+            gap: 16px;
+            justify-content: center; /* Center buttons */
+            width: 100%;
+            max-width: 600px; /* Match contact info width */
+        }
+        .contact-btn {
+            flex-grow: 1; /* Allow buttons to grow */
+            min-width: 180px; /* Minimum width before stacking */
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark); /* Always dark footer */
+            color: var(--text-primary-dark);
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border-dark);
+        }
+        /* Override text colors specifically for footer as it's always dark */
+        footer h3 { color: var(--heading-dark); }
+        footer p, footer a, footer .footer-quote { color: var(--text-secondary-dark); }
+        footer a:hover { color: var(--secondary-color-dark); } /* Use specific dark secondary */
+
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem; /* Adjusted */
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px; /* Shorter */
+            height: 3px; /* Thinner */
+            background: linear-gradient(to right, var(--primary-color-dark), var(--secondary-color-dark));
+            border-radius: 2px;
+        }
+
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            transition: var(--transition-fast);
+            padding: 4px 0;
+        }
+        .footer-links a:hover {
+            padding-left: 6px;
+        }
+        .footer-links a i { margin-right: 8px; } /* Space for icons in footer links */
+
+
+        .footer-quote {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        .footer-quote::before, .footer-quote::after {
+            font-size: 1.5em; /* Relative to quote text */
+            color: var(--secondary-color-dark); /* Use specific dark secondary */
+            vertical-align: middle;
+        }
+        .footer-quote::before { content: '“ '; }
+        .footer-quote::after { content: ' ”'; }
+
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid var(--border-dark); /* Use themed dark border */
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .heart {
+            color: #e91e63; /* A nice pink/red */
+            animation: heartbeat 1.5s infinite;
+            display: inline-block; /* Needed for transform */
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 48px;
+            height: 48px;
+            background-color: var(--app-primary);
+            color: var(--surface-light); /* Light text on primary */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-std);
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(var(--app-shadow-color-rgb), 0.15);
+            border: none;
+        }
+        body.dark-theme .scroll-top {
+            color: var(--text-primary-dark);
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-top:hover {
+            background-color: var(--app-secondary);
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        .animated {
+            opacity: 0; /* Start hidden */
+        }
+        .fadeIn { /* JS will add this class */
+            animation: fadeIn 0.8s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content { flex-direction: column; }
+            /* hero-title, section-heading already use clamp for responsiveness */
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-spacing: 70px;
+                --container-padding: 15px;
+            }
+            .container { padding: 0 var(--container-padding); }
+
+            .header-content { height: 64px; }
+            .logo { font-size: 1.5rem; }
+            .nav-desktop { display: none; }
+            .mobile-menu-btn { display: block; }
+            .header-actions { display: flex; align-items: center; gap: 8px; }
+            .theme-toggle { order: 1; }
+            .mobile-menu-btn { order: 2; }
+
+            #hero { padding-top: 64px; min-height: auto; padding-bottom: 40px; } /* Adjust for header */
+            .hero-content { padding: 20px 0; } /* Remove side padding as container handles it */
+            .btn-row { flex-direction: column; gap: 12px; }
+            .btn { width: 100%; padding: 12px; font-size: 0.95rem; }
+
+            .section-subheading { margin-bottom: 32px; }
+            .about-content { gap: 32px; }
+            .about-text p { font-size: 1rem; }
+            .stats-row { flex-direction: column; gap: 20px; }
+            .stat-card { max-width: 100%; padding: 20px; }
+
+            .card-grid { gap: 20px; }
+            .system-card-content { padding: 20px; }
+            .system-card-title { font-size: 1.15rem; }
+            .system-card-desc { font-size: 0.9rem; }
+
+            .testimonial-grid { gap: 16px; padding-bottom: 16px; }
+            .testimonial-card { padding: 20px; }
+            .slider-arrow { width: 40px; height: 40px; }
+            .left-arrow { left: 5px; }
+            .right-arrow { right: 5px; }
+
+            .contact-content { gap: 24px; }
+            .contact-info { padding: 20px; }
+            .contact-item { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+            .contact-icon { margin-bottom: 8px; }
+            .contact-buttons { flex-direction: column; gap: 12px; }
+            .contact-btn { width: 100%; padding: 12px; }
+
+            .footer-content { flex-direction: column; gap: 32px; padding: 0 var(--container-padding); }
+            .footer-col { min-width: auto; }
+            .footer-bottom { padding: 20px var(--container-padding) 0; font-size: 0.85rem; }
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%; /* Start off-screen */
+            width: 280px; /* Max width */
+            max-width: 80vw;
+            height: 100vh;
+            background-color: var(--app-surface);
+            z-index: 1001; /* Above header */
+            padding: 24px;
+            transition: right 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+            box-shadow: -5px 0 25px rgba(var(--app-shadow-color-rgb), 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .mobile-nav.open {
+            right: 0;
+        }
+        .mobile-nav-close {
+            position: absolute;
+            top: 16px; /* Adjusted */
+            right: 16px; /* Adjusted */
+            background: none;
+            border: none;
+            color: var(--app-text-secondary);
+            font-size: 1.75rem; /* Larger close icon */
+            cursor: pointer;
+            padding: 8px;
+        }
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 60px 0 0; /* Space from top/close button */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .mobile-nav li {
+            margin-bottom: 8px; /* Tighter spacing */
+        }
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--app-text-primary);
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: block;
+            padding: 12px 16px; /* Better touch targets */
+            border-radius: var(--border-radius-md);
+            transition: background-color var(--transition-fast), color var(--transition-fast);
+        }
+        .mobile-nav a:hover, .mobile-nav a:focus {
+            background-color: rgba(var(--app-primary-rgb), 0.1);
+            color: var(--app-primary);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(var(--app-shadow-color-rgb), 0.4); /* Use shadow color for overlay */
+            z-index: 1000; /* Below mobile nav, above content */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--transition-std), visibility var(--transition-std);
+        }
+        .overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /*
+        CSS for #live-ai and related elements is commented out as it's not in the provided HTML.
+        If you add this section, you can uncomment and adapt these styles.
+
+        #live-ai {
+            padding: var(--section-spacing) 0;
+            background-color: var(--app-bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 16px;
+            background-color: var(--app-surface);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--app-border);
+            transition: var(--transition-std);
+        }
+        .feature-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .feature-icon {
+            font-size: 1.75rem;
+            color: var(--app-primary);
+            background-color: rgba(var(--app-primary-rgb), 0.1);
+            padding: 12px;
+            border-radius: var(--border-radius-md);
+            transition: var(--transition-fast);
+            flex-shrink: 0;
+        }
+
+        .feature-text h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--app-heading);
+        }
+
+        .feature-text p {
+            margin: 0;
+            color: var(--app-text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        */
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Newtons Ai Hospitals</a>
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#ai-systems">AI Systems</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i> <!-- Icon will be changed by JS -->
+                    </button>
+                    <button class="mobile-menu-btn" aria-label="Open menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav">
+        <button class="mobile-nav-close" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <ul>
+            <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+            <li><a href="#ai-systems" class="mobile-nav-link">AI Systems</a></li>
+            <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-decoration"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animated">Newtons Ai Hospitals</h1>
+                <p class="hero-subtitle animated"><span id="dr-shiva-kolli">Dr. Shiva Kolli</span><span id="mbbs-founder">MBBS | founder of Newtons Ai</span></p>
+                <p class="hero-tagline animated">Revolutionizing Healthcare with AI</p>
+                <div class="btn-row animated">
+                    <a href="https://newtons.in" target="_blank" class="btn btn-primary">
+                        <i class="fa-solid fa-brain"></i> Newtons Ai
+                    </a>
+                    <a href="https://hms.newtons.in" target="_blank" class="btn btn-secondary">
+                        <i class="fa-solid fa-hospital"></i> Ai hospital management system
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fa-solid fa-envelope"></i> Contact Me
+                    </a>
+                    <a href="https://neetpg.newtons.in" target="_blank" class="btn btn-secondary">
+                        <i class="fa-solid fa-graduation-cap"></i> Newtons Neetpg
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-heading animated">About Newtons Ai Hospitals</h2>
+            <p class="section-subheading animated">Dr. Shiva Kolli, MBBS, founder of Newtons Ai, is revolutionizing healthcare with artificial intelligence.</p>
+            <div class="about-content animated">
+                <div class="about-text">
+                    <p>Newtons Ai Hospitals, under the leadership of Dr. Shiva Kolli, is at the forefront of integrating artificial intelligence into healthcare. We leverage cutting-edge AI to enhance every aspect of patient care, from diagnosis and treatment planning to hospital management.</p>
+                    <p>Our mission is to provide advanced, efficient, and compassionate healthcare by empowering our medical professionals with intelligent tools and systems that improve clinical outcomes and patient experiences.</p>
+                    <div class="stats-row">
+                        <div class="stat-card animated">
+                            <div class="stat-number">1 Lakh+</div>
+                            <div class="stat-label">Cases Solved</div>
+                        </div>
+                        <div class="stat-card animated">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Successful Outcomes</div>
+                        </div>
+                        <div class="stat-card animated">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">AI Assistant</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Systems Section -->
+    <section id="ai-systems" class="bg-surface"> <!-- Added class for card background logic -->
+        <div class="container">
+            <h2 class="section-heading animated">AI Powered HMS</h2>
+            <p class="section-subheading animated">Intelligent healthcare solutions for better patient care.</p>
+            <div class="card-grid">
+                <div class="system-card animated">
+                    <div class="system-card-content">
+                        <h3 class="system-card-title">Gold Membership</h3>
+                        <p class="system-card-desc">100rs per month and get unlimited free consultation and upto 80% discount on drugs and lab tests and free basic tests like sugar and bp.</p>
+                        <a href="#contact" class="system-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="system-card animated">
+                    <div class="system-card-content">
+                        <h3 class="system-card-title">AI-Assisted Diagnosis</h3>
+                        <p class="system-card-desc">Utilizing AI for faster and more accurate diagnostic support.</p>
+                        <a href="#contact" class="system-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="system-card animated">
+                    <div class="system-card-content">
+                        <h3 class="system-card-title">Personalized Treatment Plans</h3>
+                        <p class="system-card-desc">AI-driven treatment planning tailored to individual patient needs.</p>
+                        <a href="#contact" class="system-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="system-card animated">
+                    <div class="system-card-content">
+                        <h3 class="system-card-title">Smart Patient Monitoring</h3>
+                        <p class="system-card-desc">Continuous AI monitoring for real-time patient status and alerts.</p>
+                        <a href="#contact" class="system-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="system-card animated">
+                    <div class="system-card-content">
+                        <h3 class="system-card-title">Efficient Hospital Management</h3>
+                        <p class="system-card-desc">AI optimizing hospital operations for improved efficiency.</p>
+                        <a href="#contact" class="system-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="system-card animated">
+                    <div class="system-card-content">
+                        <h3 class="system-card-title">Automated EMR</h3>
+                        <p class="system-card-desc">Streamlining patient records and clinical workflows with intelligent automation.</p>
+                        <a href="#contact" class="system-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-surface"> <!-- Added class for card background logic -->
+        <div class="container">
+            <h2 class="section-heading animated">Patient Testimonials</h2>
+            <p class="section-subheading animated">Hear from patients who have experienced care at Newtons Ai Hospitals.</p>
+            <div class="testimonial-slider-container">
+                <button class="slider-arrow left-arrow" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="slider-arrow right-arrow" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card animated">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                        <p class="testimonial-text">"The care I received at Newtons Ai Hospitals was exceptional. The doctors were knowledgeable, and the use of AI seemed to make the diagnostic process very efficient."</p>
+                        <div class="testimonial-person">
+                            <div class="testimonial-info">
+                                <h4>P. Kumar</h4>
+                                <p>Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animated">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                        <p class="testimonial-text">"I was impressed by how quickly and accurately my condition was diagnosed at Newtons Ai Hospitals. The technology combined with the expertise of the medical staff provided great peace of mind."</p>
+                        <div class="testimonial-person">
+                            <div class="testimonial-info">
+                                <h4>S. Reddy</h4>
+                                <p>Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animated">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                        <p class="testimonial-text">"The AI-powered diagnosis was incredibly fast and accurate. It gave me confidence in the treatment plan provided by the doctors."</p>
+                        <div class="testimonial-person">
+                            <div class="testimonial-info">
+                                <h4>A. Sharma</h4>
+                                <p>Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animated">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                        <p class="testimonial-text">"Newtons Ai Hospitals truly represents the future of healthcare. The seamless integration of technology and human expertise is remarkable."</p>
+                        <div class="testimonial-person">
+                            <div class="testimonial-info">
+                                <h4>R. Singh</h4>
+                                <p>Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-heading animated">Contact Newtons Ai Hospitals</h2>
+            <p class="section-subheading animated">Get in touch with us for appointments or inquiries.</p>
+            <div class="contact-content">
+                <div class="contact-info animated">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-text">
+                            <h3>Address</h3>
+                            <p>Opposite to Post Office, Nandigama 521185</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+916363111328">+91 63631 11328</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p><a href="mailto:drnewtonsai@gmail.com">drnewtonsai@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-buttons btn-row animated">
+                    <a href="https://maps.app.goo.gl/G1cFrrv6owys4QyM6" target="_blank" class="btn btn-secondary contact-btn">
+                        <i class="fa-solid fa-map-location-dot"></i> View on Maps
+                    </a>
+                    <a href="mailto:drnewtonsai@gmail.com" class="btn btn-primary contact-btn">
+                        <i class="fa-solid fa-calendar-check"></i> Book Appointment
+                    </a>
+                    <a href="tel:+916363111328" class="btn btn-secondary contact-btn">
+                        <i class="fa-solid fa-phone-volume"></i> Call Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Newtons Ai Hospitals</h3>
+                    <p class="footer-quote">AI won’t replace doctors. But doctors who use AI will replace those who don’t. – Dr. Shiva Kolli, Founder</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#ai-systems">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://newtons.in" target="_blank"><i class="fa-solid fa-brain"></i> Newtons AI Platform</a></li>
+                        <li><a href="https://hms.newtons.in" target="_blank"><i class="fa-solid fa-hospital"></i> HMS System</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Newtons Ai Hospitals. Made with <span class="heart"><i class="fa-solid fa-heart"></i></span> by Newtons Ai.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Dark mode toggle
+            const themeToggleButton = document.querySelector('.theme-toggle');
+            const body = document.body;
+            const moonIconClass = 'fa-moon';
+            const sunIconClass = 'fa-sun';
+            const currentThemeIcon = themeToggleButton.querySelector('i');
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    body.classList.add('dark-theme');
+                    currentThemeIcon.classList.remove(moonIconClass);
+                    currentThemeIcon.classList.add(sunIconClass);
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.classList.remove('dark-theme');
+                    currentThemeIcon.classList.remove(sunIconClass);
+                    currentThemeIcon.classList.add(moonIconClass);
+                    localStorage.setItem('theme', 'light');
+                }
+            };
+
+            themeToggleButton.addEventListener('click', () => {
+                body.classList.contains('dark-theme') ? applyTheme('light') : applyTheme('dark');
+            });
+
+            // Apply saved theme on load or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            } else if (prefersDark) {
+                applyTheme('dark');
+            } else {
+                 applyTheme('light'); // Default to light
+            }
+
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileNavClose = document.querySelector('.mobile-nav-close');
+            const overlay = document.querySelector('.overlay');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            const toggleMobileMenu = (open) => {
+                if (open) {
+                    mobileNav.classList.add('open');
+                    overlay.classList.add('open');
+                    body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                } else {
+                    mobileNav.classList.remove('open');
+                    overlay.classList.remove('open');
+                    body.style.overflow = '';
+                }
+            };
+
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => toggleMobileMenu(true));
+            if (mobileNavClose) mobileNavClose.addEventListener('click', () => toggleMobileMenu(false));
+            if (overlay) overlay.addEventListener('click', () => toggleMobileMenu(false));
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMobileMenu(false));
+            });
+
+            // Smooth scroll for navigation links (including mobile)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        // Consider header height for scroll offset
+                        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Scroll to top button visibility & functionality
+            const scrollTopButton = document.querySelector('.scroll-top');
+            if (scrollTopButton) {
+                window.addEventListener('scroll', () => {
+                    scrollTopButton.classList.toggle('active', window.scrollY > 300);
+                });
+                scrollTopButton.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Testimonial slider functionality
+            const testimonialGrid = document.querySelector('.testimonial-grid');
+            const leftArrow = document.querySelector('.left-arrow');
+            const rightArrow = document.querySelector('.right-arrow');
+            
+            if (testimonialGrid && leftArrow && rightArrow) {
+                const testimonialCards = testimonialGrid.querySelectorAll('.testimonial-card');
+
+                const scrollTestimonial = (direction) => {
+                    if (testimonialCards.length > 0) {
+                        const cardStyle = window.getComputedStyle(testimonialCards[0]);
+                        const cardWidth = testimonialCards[0].offsetWidth;
+                        // Calculate gap dynamically. Fallback if 'gap' property isn't directly on grid.
+                        const gridStyle = window.getComputedStyle(testimonialGrid);
+                        let gap = parseFloat(gridStyle.gap);
+                        if (isNaN(gap) && testimonialCards.length > 1) { // Fallback by measuring margin
+                             gap = parseFloat(window.getComputedStyle(testimonialCards[1]).marginLeft);
+                        }
+                        if (isNaN(gap)) gap = 24; // Default fallback if everything else fails
+
+                        const scrollAmount = cardWidth + gap;
+                        testimonialGrid.scrollBy({
+                            left: direction * scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+                };
+                leftArrow.addEventListener('click', () => scrollTestimonial(-1));
+                rightArrow.addEventListener('click', () => scrollTestimonial(1));
+            }
+
+
+            // Intersection Observer for animations
+            const animatedElements = document.querySelectorAll('.animated');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fadeIn');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => observer.observe(element));
+
+            // Set current year in footer
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
