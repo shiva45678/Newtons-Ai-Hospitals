@@ -921,7 +921,10 @@
             .container { padding: 0 var(--container-padding); }
 
             .header-content { height: 64px; }
-            .logo { font-size: 1.5rem; }
+            .logo {
+                font-size: 1.2rem; /* Reduced size for mobile */
+                white-space: nowrap; /* Prevent wrapping */
+            }
             .nav-desktop { display: none; }
             .mobile-menu-btn { display: block; }
             .header-actions { display: flex; align-items: center; gap: 8px; }
