@@ -417,6 +417,7 @@
         #ai-systems { background-color: var(--app-surface); }
         #testimonials { background-color: var(--app-surface); }
         #contact { background-color: var(--app-bg); }
+        #donate { background-color: var(--app-surface); }
 
 
         .section-heading {
@@ -773,6 +774,13 @@
             min-width: 180px; /* Minimum width before stacking */
         }
 
+        /* Donate Section */
+        .donate-button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
         /* Footer */
         footer {
             background-color: var(--bg-dark); /* Always dark footer */
@@ -1112,6 +1120,7 @@
                         <li><a href="#ai-systems">AI Systems</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li><a href="#donate">Donate</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
@@ -1137,6 +1146,7 @@
             <li><a href="#ai-systems" class="mobile-nav-link">AI Systems</a></li>
             <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
             <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+            <li><a href="#donate" class="mobile-nav-link">Donate</a></li>
         </ul>
     </div>
     <div class="overlay"></div>
@@ -1345,6 +1355,17 @@
         </div>
     </section>
 
+    <!-- Donate Section -->
+    <section id="donate" class="bg-surface">
+        <div class="container">
+            <h2 class="section-heading animated">Support Our Mission</h2>
+            <p class="section-subheading animated">100% of the money will be used to develop advanced AI assistants for doctors, support the innovation in healthcare.</p>
+            <div class="donate-button-container animated">
+                <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_QucG47lZk68gE2" async> </script> </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1360,6 +1381,7 @@
                         <li><a href="#ai-systems">Services</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#donate">Donate</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1371,7 +1393,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> Newtons Ai Hospitals. Made with <span class="heart"><i class="fa-solid fa-heart"></i></span> by Newtons Ai.</p>
+                <p>© <span id="currentYear"></span> Newtons Ai Hospitals. Made with <span class="heart"><i class="fa-solid fa-heart"></i></span> by Newtons Ai.</p>
             </div>
         </div>
     </footer>
