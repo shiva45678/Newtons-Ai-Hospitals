@@ -54,463 +54,157 @@
             --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
         }
 
-        * {
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-body);
-            color: var(--text-main);
+            margin: 0; padding: 0;
+            background-color: var(--bg-body); color: var(--text-main);
             transition: background-color 0.3s ease, color 0.3s ease;
-            overflow-x: hidden;
-            line-height: 1.6;
+            overflow-x: hidden; line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
-            color: var(--text-main);
-            margin-top: 0;
-            line-height: 1.2;
-        }
+        h1, h2, h3, h4 { color: var(--text-main); margin-top: 0; line-height: 1.2; }
+        p { color: var(--text-muted); margin-bottom: 1.5rem; }
+        a { text-decoration: none; color: var(--primary); transition: 0.2s; }
 
-        p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--primary);
-            transition: 0.2s;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
         /* --- Header & Glass Effect --- */
         header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: var(--bg-glass);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-glass);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: var(--bg-glass); backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-glass);
             transition: 0.3s;
         }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-weight: 800; font-size: 1.5rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-        .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        nav ul { display: flex; gap: 32px; list-style: none; padding: 0; margin: 0; }
+        nav a { color: var(--text-muted); font-weight: 600; font-size: 0.95rem; padding: 8px 0; position: relative; }
+        nav a:hover, nav a.active { color: var(--primary); }
 
-        nav ul {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav a {
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 8px 0;
-            position: relative;
-        }
-
-        nav a:hover, nav a.active {
-            color: var(--primary);
-        }
-
-        /* Theme Toggle */
         .theme-toggle {
-            background: transparent;
-            border: 1px solid var(--border-glass);
-            color: var(--text-main);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
+            background: transparent; border: 1px solid var(--border-glass);
+            color: var(--text-main); width: 40px; height: 40px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;
         }
-        .theme-toggle:hover {
-            background: rgba(128, 128, 128, 0.1);
-            color: var(--primary);
-        }
+        .theme-toggle:hover { background: rgba(128, 128, 128, 0.1); color: var(--primary); }
 
         /* --- Hero Section --- */
         #hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-top: 80px;
-            text-align: center;
-            overflow: hidden;
+            position: relative; min-height: 100vh; display: flex; align-items: center;
+            justify-content: center; padding-top: 80px; text-align: center; overflow: hidden;
         }
 
-        /* Animated Background Blobs */
-        .hero-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
-            z-index: -1;
-            animation: float 10s infinite alternate ease-in-out;
-        }
+        .hero-blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; z-index: -1; animation: float 10s infinite alternate ease-in-out; }
         .blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--primary); }
         .blob-2 { bottom: -10%; right: -10%; width: 400px; height: 400px; background: var(--secondary); animation-delay: -5s; }
 
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(20px, 40px) scale(1.1); }
-        }
+        @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(20px, 40px) scale(1.1); } }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 20px;
-        }
-
+        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 20px; }
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-            background: linear-gradient(to right, var(--text-main) 20%, var(--primary) 80%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-bottom: 24px;
+            letter-spacing: -0.02em; background: linear-gradient(to right, var(--text-main) 20%, var(--primary) 80%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            font-weight: 500;
-        }
-        
-        .name-highlight {
-            color: var(--primary);
-            font-weight: 700;
-        }
+        .hero-subtitle { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--text-muted); margin-bottom: 40px; font-weight: 500; }
+        .name-highlight { color: var(--primary); font-weight: 700; }
 
         /* Buttons */
-        .btn-row {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
+        .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: 50px; /* Pill shape */
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            cursor: pointer;
+            display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+            border-radius: 50px; font-weight: 600; font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: none; cursor: pointer;
         }
+        .btn-primary { background: var(--primary-gradient); color: white; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5); color: white; }
+        
+        .btn-visit { background: var(--accent); color: white; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
+        .btn-visit:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5); color: white; }
 
-        .btn-primary {
-            background: var(--primary-gradient);
-            color: white;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: var(--bg-surface);
-            color: var(--text-main);
-            border: 1px solid var(--border-glass);
-            box-shadow: var(--shadow-sm);
-        }
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
+        .btn-secondary { background: var(--bg-surface); color: var(--text-main); border: 1px solid var(--border-glass); box-shadow: var(--shadow-sm); }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow-md); }
 
         /* --- Sections --- */
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
+        section { padding: 100px 0; position: relative; }
+        .section-heading { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-align: center; margin-bottom: 16px; }
+        .section-subheading { text-align: center; max-width: 600px; margin: 0 auto 64px; font-size: 1.1rem; }
 
-        .section-heading {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 16px;
+        /* --- Branches Logic --- */
+        .branch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+        .branch-card {
+            background: var(--bg-surface); padding: 40px; border-radius: var(--radius-lg);
+            border: 1px solid var(--border-glass); box-shadow: var(--shadow-md); transition: 0.4s; position: relative;
+            display: flex; flex-direction: column;
         }
+        .branch-card.nearest { border: 2px solid var(--primary); box-shadow: var(--shadow-glow); transform: translateY(-8px); }
+        .nearest-badge {
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            background: var(--primary); color: white; padding: 6px 20px; border-radius: 20px;
+            font-size: 0.75rem; font-weight: 800; display: none; white-space: nowrap; z-index: 10;
+        }
+        .branch-card.nearest .nearest-badge { display: block; }
+        .dist-info { font-weight: 700; color: var(--primary); font-size: 0.95rem; margin: 15px 0; }
 
-        .section-subheading {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 64px;
-            font-size: 1.1rem;
-        }
+        /* --- Stats & System Cards --- */
+        .stats-row { display: flex; gap: 24px; margin-top: 48px; justify-content: center; flex-wrap: wrap; }
+        .stat-card { background: var(--bg-surface); padding: 32px 24px; border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-md); border: 1px solid var(--border-glass); flex: 1; min-width: 200px; max-width: 300px; transition: 0.3s; }
+        .stat-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; display: block; }
 
-        /* --- About Stats --- */
-        .stats-row {
-            display: flex;
-            gap: 24px;
-            margin-top: 48px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .stat-card {
-            background: var(--bg-surface);
-            padding: 32px 24px;
-            border-radius: var(--radius-lg);
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-glass);
-            flex: 1;
-            min-width: 200px;
-            max-width: 300px;
-            transition: 0.3s;
-        }
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        /* --- Grid Systems --- */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 32px;
-        }
-
-        .glass-card {
-            background: var(--bg-surface);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            border: 1px solid var(--border-glass);
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Modern Hover Effect */
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            background: var(--primary);
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-        .glass-card:hover::before {
-            opacity: 1;
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            background: rgba(37, 99, 235, 0.1);
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 16px;
-        }
-
-        .glass-card h3 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        
-        .card-link {
-            margin-top: auto;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .card-link:hover {
-            gap: 12px; /* Slide effect */
-        }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; }
+        .glass-card { background: var(--bg-surface); border-radius: var(--radius-lg); padding: 32px; border: 1px solid var(--border-glass); box-shadow: var(--shadow-md); transition: all 0.3s ease; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+        .glass-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary); opacity: 0; transition: 0.3s; }
+        .glass-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .glass-card:hover::before { opacity: 1; }
+        .card-icon { font-size: 2rem; color: var(--primary); margin-bottom: 20px; background: rgba(37, 99, 235, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 16px; }
 
         /* --- Testimonials --- */
-        .testimonial-slider-container {
-            position: relative;
-            padding: 20px 0;
-        }
-        
-        .testimonial-grid {
-            display: flex;
-            overflow-x: auto;
-            gap: 32px;
-            padding: 20px 10px 40px;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -webkit-overflow-scrolling: touch;
-        }
+        .testimonial-slider-container { position: relative; padding: 20px 0; }
+        .testimonial-grid { display: flex; overflow-x: auto; gap: 32px; padding: 20px 10px 40px; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
         .testimonial-grid::-webkit-scrollbar { display: none; }
-
-        .testimonial-card {
-            flex: 0 0 350px;
-            scroll-snap-align: center;
-            background: var(--bg-surface);
-            padding: 32px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-glass);
-        }
-
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 10px;
-        }
-        .slider-btn {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 1px solid var(--border-glass);
-            background: var(--bg-surface);
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .slider-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
+        .testimonial-card { flex: 0 0 350px; scroll-snap-align: center; background: var(--bg-surface); padding: 32px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--border-glass); }
+        .slider-controls { display: flex; justify-content: center; gap: 16px; margin-top: 10px; }
+        .slider-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border-glass); background: var(--bg-surface); color: var(--primary); cursor: pointer; font-size: 1.2rem; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+        .slider-btn:hover { background: var(--primary); color: white; }
 
         /* --- Contact --- */
-        .contact-wrapper {
-            background: var(--bg-surface);
-            border-radius: var(--radius-lg);
-            padding: 48px;
-            box-shadow: var(--shadow-lg);
-            max-width: 800px;
-            margin: 0 auto;
-            border: 1px solid var(--border-glass);
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            border-bottom: 1px solid var(--border-glass);
-        }
+        .contact-wrapper { background: var(--bg-surface); border-radius: var(--radius-lg); padding: 48px; box-shadow: var(--shadow-lg); max-width: 800px; margin: 0 auto; border: 1px solid var(--border-glass); }
+        .contact-item { display: flex; align-items: center; gap: 20px; padding: 20px; border-bottom: 1px solid var(--border-glass); }
         .contact-item:last-child { border-bottom: none; }
-        
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--secondary);
-        }
+        .contact-item i { font-size: 1.5rem; color: var(--secondary); }
 
         /* --- Footer --- */
-        footer {
-            background: #0F172A;
-            color: #F8FAFC;
-            padding: 80px 0 30px;
-        }
+        footer { background: #0F172A; color: #F8FAFC; padding: 80px 0 30px; }
         footer h3 { color: white; }
         footer p, footer a { color: #94A3B8; }
         footer a:hover { color: var(--secondary); }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; }
         
         .heart { color: #EF4444; animation: heartbeat 1.5s infinite; display: inline-block; }
         @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
         /* --- Mobile --- */
         .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; color: var(--text-main); }
-        .mobile-nav {
-            position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-            background: var(--bg-surface); box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-            z-index: 2000; padding: 24px; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        .mobile-nav { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: var(--bg-surface); box-shadow: -10px 0 30px rgba(0,0,0,0.2); z-index: 2000; padding: 24px; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .mobile-nav.open { right: 0; }
-        .overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5); z-index: 1500;
-            opacity: 0; pointer-events: none; transition: 0.3s;
-        }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1500; opacity: 0; pointer-events: none; transition: 0.3s; }
         .overlay.open { opacity: 1; pointer-events: all; }
 
         @media (max-width: 768px) {
             .nav-desktop { display: none; }
             .mobile-menu-btn { display: block; }
             .hero-title { font-size: 2.5rem; }
-            .btn-row { flex-direction: column; width: 100%; }
+            .btn-row { flex-direction: column; width: 100%; gap: 12px; }
             .btn { width: 100%; justify-content: center; }
             .contact-wrapper { padding: 24px; }
             .contact-item { flex-direction: column; text-align: center; }
         }
 
-        /* Utility: Fade In Animation */
         .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
@@ -527,6 +221,7 @@
                     <ul>
                         <li><a href="#hero">Home</a></li>
                         <li><a href="#about">About</a></li>
+                        <li><a href="#branches">Branches</a></li>
                         <li><a href="#ai-systems">Systems</a></li>
                         <li><a href="#testimonials">Reviews</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -554,6 +249,7 @@
         <ul style="list-style: none; padding: 0;">
             <li style="margin-bottom: 20px;"><a href="#hero" onclick="toggleMobileMenu(false)">Home</a></li>
             <li style="margin-bottom: 20px;"><a href="#about" onclick="toggleMobileMenu(false)">About</a></li>
+            <li style="margin-bottom: 20px;"><a href="#branches" onclick="toggleMobileMenu(false)">Branches</a></li>
             <li style="margin-bottom: 20px;"><a href="#ai-systems" onclick="toggleMobileMenu(false)">AI Systems</a></li>
             <li style="margin-bottom: 20px;"><a href="#contact" onclick="toggleMobileMenu(false)">Contact</a></li>
         </ul>
@@ -572,12 +268,22 @@
                     Led by <span class="name-highlight">Dr. Shiva Kolli</span> | Revolutionizing Healthcare with Intelligence.
                 </p>
                 
+                <!-- Main Action Row -->
                 <div class="btn-row">
-                    <!-- FRANCHISE BUTTON -->
-                    <a href="https://dr.newtons.in/franchise" target="_blank" class="btn btn-primary">
+                    <button id="main-visit-btn" onclick="visitNearest()" class="btn btn-visit">
+                        <i class="fa-solid fa-person-walking"></i> Visit Nearest Branch
+                    </button>
+                    <!-- UPDATED LINK -->
+                    <a href="https://store.newtons.in" target="_blank" class="btn btn-primary">
                         <i class="fa-solid fa-handshake"></i> Apply for Franchise
                     </a>
-                    
+                </div>
+
+                <!-- Secondary Nav / Ecosystem Links -->
+                <div class="btn-row">
+                    <a href="#branches" class="btn btn-secondary">
+                        <i class="fa-solid fa-location-dot"></i> Our Branches
+                    </a>
                     <a href="https://newtons.in" target="_blank" class="btn btn-secondary">
                         <i class="fa-solid fa-brain"></i> Newtons Ai
                     </a>
@@ -585,6 +291,7 @@
                         <i class="fa-solid fa-laptop-medical"></i> Hospital OS
                     </a>
                 </div>
+
             </div>
         </div>
     </section>
@@ -617,6 +324,57 @@
         </div>
     </section>
 
+    <!-- Smart Branches Section -->
+    <section id="branches" style="background-color: var(--bg-surface);">
+        <div class="container">
+            <h2 class="section-heading fade-in">Our Regional Centers</h2>
+            <p id="location-status" class="section-subheading fade-in" style="color: var(--primary); font-weight: 600;">
+                <i class="fa-solid fa-location-crosshairs fa-spin" style="margin-right: 5px;"></i> Detecting the nearest medical center for you...
+            </p>
+            
+            <div class="branch-grid">
+                <!-- Nandigama -->
+                <div class="branch-card fade-in" id="branch-nandigama">
+                    <span class="nearest-badge">CLOSEST TO YOU</span>
+                    <i class="fa-solid fa-hospital-user" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 style="margin: 0;">Nandigama</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Home Branch</p>
+                    <p><i class="fa-solid fa-location-dot" style="margin-right: 8px;"></i> Opposite to Post Office, Nandigama 521185</p>
+                    <div class="dist-info" id="dist-nandigama">Calculating distance...</div>
+                    <a href="https://maps.app.goo.gl/KcXwc2S9wxxdP7L78" target="_blank" class="btn btn-secondary" style="margin-top: auto; justify-content: center;">
+                        <i class="fa-solid fa-route"></i> Directions 
+                    </a>
+                </div>
+
+                <!-- Madhira -->
+                <div class="branch-card fade-in" id="branch-madhira">
+                    <span class="nearest-badge">CLOSEST TO YOU</span>
+                    <i class="fa-solid fa-hospital" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 style="margin: 0;">Madhira</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Telangana Branch</p>
+                    <p><i class="fa-solid fa-location-dot" style="margin-right: 8px;"></i> Main Road, Madhira, Telangana</p>
+                    <div class="dist-info" id="dist-madhira">Calculating distance...</div>
+                    <a href="https://maps.app.goo.gl/LqNdd9KyEroNP8iS7" target="_blank" class="btn btn-secondary" style="margin-top: auto; justify-content: center;">
+                        <i class="fa-solid fa-route"></i> Directions 
+                    </a>
+                </div>
+
+                <!-- Jaggayyapeta -->
+                <div class="branch-card fade-in" id="branch-jaggayyapeta">
+                    <span class="nearest-badge">CLOSEST TO YOU</span>
+                    <i class="fa-solid fa-clinic-medical" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 style="margin: 0;">Jaggayyapeta</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Andhra Branch</p>
+                    <p><i class="fa-solid fa-location-dot" style="margin-right: 8px;"></i> Jaggayyapeta Town Center, Andhra Pradesh</p>
+                    <div class="dist-info" id="dist-jaggayyapeta">Calculating distance...</div>
+                    <a href="https://www.google.com/maps/search/Newtons+Ai+Hospital+Jaggayyapeta" target="_blank" class="btn btn-secondary" style="margin-top: auto; justify-content: center;">
+                        <i class="fa-solid fa-route"></i> Directions 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- AI Systems Section -->
     <section id="ai-systems">
         <div class="container">
@@ -624,52 +382,41 @@
             <p class="section-subheading fade-in">Explore our suite of AI-driven healthcare solutions.</p>
             
             <div class="card-grid">
-                <!-- Card 1 -->
                 <div class="glass-card fade-in">
                     <div class="card-icon"><i class="fa-solid fa-crown"></i></div>
                     <h3>Gold Membership</h3>
                     <p>₹100/mo for unlimited free consultation, up to 80% off drugs/labs, and free vitals checks.</p>
-                    <a href="#contact" class="card-link">Get Membership <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="card-link" style="margin-top: auto; font-weight: 600;">Get Membership <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                
-                <!-- Card 2 -->
                 <div class="glass-card fade-in">
                     <div class="card-icon"><i class="fa-solid fa-stethoscope"></i></div>
                     <h3>AI Diagnosis</h3>
                     <p>Utilizing deep learning algorithms for faster, data-backed diagnostic support.</p>
-                    <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="card-link" style="margin-top: auto; font-weight: 600;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                
-                <!-- Card 3 -->
                 <div class="glass-card fade-in">
                     <div class="card-icon"><i class="fa-solid fa-user-doctor"></i></div>
                     <h3>Personalized Plans</h3>
                     <p>Treatment protocols tailored to individual patient genetics and history.</p>
-                    <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="card-link" style="margin-top: auto; font-weight: 600;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-
-                <!-- Card 4 -->
                 <div class="glass-card fade-in">
                     <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
                     <h3>Smart Monitoring</h3>
                     <p>IoT integration for real-time patient status tracking and alerts.</p>
-                    <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="card-link" style="margin-top: auto; font-weight: 600;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-
-                <!-- Card 5 -->
                 <div class="glass-card fade-in">
                     <div class="card-icon"><i class="fa-solid fa-hospital-user"></i></div>
                     <h3>Hospital OS</h3>
                     <p>Complete management system optimizing operations and bed availability.</p>
-                    <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="card-link" style="margin-top: auto; font-weight: 600;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-
-                <!-- Card 6 -->
                 <div class="glass-card fade-in">
                     <div class="card-icon"><i class="fa-solid fa-file-medical"></i></div>
                     <h3>Automated EMR</h3>
                     <p>Zero-typing patient records using voice-to-text and AI summarization.</p>
-                    <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="card-link" style="margin-top: auto; font-weight: 600;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -719,7 +466,7 @@
                 <div class="contact-item">
                     <i class="fa-solid fa-location-dot"></i>
                     <div>
-                        <h3>Visit Us</h3>
+                        <h3>Main Office</h3>
                         <p style="margin:0;">Opposite to Post Office, Nandigama 521185</p>
                     </div>
                 </div>
@@ -738,13 +485,13 @@
                     </div>
                 </div>
                 
-                <div class="btn-row" style="margin-top: 32px;">
-                    <a href="https://maps.app.goo.gl/G1cFrrv6owys4QyM6" target="_blank" class="btn btn-secondary">
-                        <i class="fa-solid fa-map"></i> Google Maps
-                    </a>
+                <div class="btn-row" style="margin-top: 32px; justify-content: flex-start;">
                     <a href="mailto:drnewtonsai@gmail.com" class="btn btn-primary">
                         <i class="fa-solid fa-calendar-check"></i> Book Appointment
                     </a>
+                    <button onclick="findNearest()" class="btn btn-secondary">
+                        <i class="fa-solid fa-location-crosshairs"></i> Refresh Nearest Branch
+                    </button>
                 </div>
             </div>
         </div>
@@ -762,8 +509,10 @@
                     <h3>Quick Links</h3>
                     <ul style="list-style: none; padding: 0; line-height: 2;">
                         <li><a href="#about">About Us</a></li>
+                        <li><a href="#branches">Our Branches</a></li>
                         <li><a href="#ai-systems">Services</a></li>
-                        <li><a href="https://dr.newtons.in/franchise">Franchise</a></li>
+                        <!-- UPDATED LINK -->
+                        <li><a href="https://store.newtons.in">Franchise</a></li>
                     </ul>
                 </div>
                 <div>
@@ -776,11 +525,76 @@
             </div>
             <div style="border-top: 1px solid #334155; padding-top: 20px; text-align: center; font-size: 0.9rem;">
                 <p>© <span id="currentYear"></span> Newtons Ai Hospitals. Made with <span class="heart"><i class="fa-solid fa-heart"></i></span> by Newtons Ai.</p>
+                <div style="margin-top: 10px; color: #64748B;">Nandigama | Madhira | Jaggayyapeta</div>
             </div>
         </div>
     </footer>
 
     <script>
+        // --- Branch Coordinates & Links ---
+        const branches =[
+            { id: 'nandigama', lat: 16.7663, lon: 80.2922, link: 'https://maps.app.goo.gl/KcXwc2S9wxxdP7L78' },
+            { id: 'madhira', lat: 17.0321, lon: 80.3626, link: 'https://maps.app.goo.gl/LqNdd9KyEroNP8iS7' },
+            { id: 'jaggayyapeta', lat: 16.8938, lon: 80.1012, link: 'https://www.google.com/maps/search/Newtons+Ai+Hospital+Jaggayyapeta' }
+        ];
+
+        let nearestBranchLink = branches[0].link; // Default
+
+        // Haversine formula to calculate distance between coordinates
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Earth's radius in km
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
+        }
+
+        function findNearest() {
+            const status = document.getElementById('location-status');
+            if (!navigator.geolocation) {
+                status.innerHTML = "<i class='fa-solid fa-circle-exclamation'></i> Location tracking not supported. Defaulting to Nandigama.";
+                return;
+            }
+
+            status.innerHTML = "<i class='fa-solid fa-location-crosshairs fa-spin'></i> Detecting the nearest medical center for you...";
+
+            navigator.geolocation.getCurrentPosition((pos) => {
+                let minDistance = Infinity;
+                let nearestId = '';
+
+                branches.forEach(branch => {
+                    const dist = calculateDistance(pos.coords.latitude, pos.coords.longitude, branch.lat, branch.lon);
+                    document.getElementById(`dist-${branch.id}`).textContent = `${dist.toFixed(1)} km from your location`;
+                    
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        nearestId = branch.id;
+                        nearestBranchLink = branch.link;
+                    }
+                });
+
+                // Update UI for the nearest branch
+                document.querySelectorAll('.branch-card').forEach(c => c.classList.remove('nearest'));
+                document.getElementById(`branch-${nearestId}`).classList.add('nearest');
+                
+                // Update Hero Button
+                const btnText = nearestId.charAt(0).toUpperCase() + nearestId.slice(1);
+                document.getElementById('main-visit-btn').innerHTML = `<i class="fa-solid fa-map-location-dot"></i> Directions to ${btnText}`;
+                
+                // Update Status
+                status.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--accent);"></i> Our ${btnText} branch is closest to you.`;
+            }, () => {
+                status.innerHTML = "<i class='fa-solid fa-location-dot'></i> Location access denied. Please select a branch manually.";
+            });
+        }
+
+        // Action for dynamic Visit button
+        function visitNearest() {
+            window.open(nearestBranchLink, '_blank');
+        }
+
         // --- Theme Toggle ---
         const themeBtn = document.querySelector('.theme-toggle');
         const themeIcon = themeBtn.querySelector('i');
@@ -802,7 +616,6 @@
             applyTheme(body.classList.contains('dark-theme') ? 'light' : 'dark');
         });
 
-        // Init Theme
         const savedTheme = localStorage.getItem('theme');
         const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         applyTheme(savedTheme || (systemDark ? 'dark' : 'light'));
@@ -833,7 +646,12 @@
             grid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
-        // --- Animations ---
+        // --- Animations & Init ---
+        window.onload = () => {
+            findNearest();
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -844,9 +662,6 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
