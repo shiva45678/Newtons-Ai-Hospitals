@@ -215,6 +215,10 @@ a{text-decoration:none;color:inherit;}
 .mobile-nav.open .m-cta{opacity:1;transform:translateY(0);}
 .mobile-nav-close{position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;background:var(--surf);border:1px solid var(--bdr);color:var(--txt2);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;outline:none;font-family:var(--f-body);transition:all .25s;z-index:10;}
 .mobile-nav-close:hover{transform:rotate(90deg);border-color:var(--bdr2);color:var(--accent);}
+.mobile-nav-brand{display:flex;align-items:center;gap:10px;padding-bottom:24px;margin-bottom:8px;border-bottom:1px solid var(--bdr);opacity:0;transform:translateY(-8px);transition:all .35s var(--ease-out-expo) .05s;}
+.mobile-nav.open .mobile-nav-brand{opacity:1;transform:translateY(0);}
+.mobile-nav-brand-name{font-size:1.05rem;font-weight:700;color:var(--txt);letter-spacing:-0.02em;}
+.mobile-nav-brand-tag{font-size:0.6rem;font-weight:700;padding:2px 8px;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);border-radius:4px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;}
 
 /* BUTTONS */
 .btn {
@@ -649,29 +653,112 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:64px 0 0;}
 
 /* MOBILE */
 @media(max-width:640px){
-  .wrap{padding:0 18px;}
-  section{padding:72px 0;}
+  .wrap{padding:0 16px;}
+  section{padding:64px 0;}
+
+  /* Nav */
   .nav-links, .nav-cta { display: none !important; }
   .menu-toggle { display: flex; }
-  .nav-container { padding: 0 16px; height: 64px; }
-  #hero{padding:84px 0 52px;}
-  .hero-h1{font-size:clamp(2.6rem,9vw,3.8rem);}
-  .hero-btns{flex-direction:column;}
-  .hero-btns .btn{justify-content:center;}
-  .hero-stats{flex-direction:column;border-radius:var(--r-md);}
-  .hstat{border-right:none;border-bottom:1px solid var(--bdr);}
-  .hstat:last-child{border-bottom:none;}
-  .hstat-num{font-size:1.5rem;}
-  .met-grid{grid-template-columns:1fr 1fr;}
-  .met-tile:first-child{grid-column:span 2;}
-  .branches-grid{grid-template-columns:1fr;}
-  .sys-grid{grid-template-columns:1fr;}
-  .testi-grid{grid-template-columns:1fr;}
-  .contact-grid{grid-template-columns:1fr;}
-  .c-panel{padding:24px;}
-  .ft-grid{grid-template-columns:1fr;gap:28px;}
-  .ft-bottom{flex-direction:column;text-align:center;}
-  .sec-title{font-size:clamp(1.8rem,7vw,2.5rem);}
+  .nav-container { padding: 0 16px; height: 60px; }
+  .nav-logo-name { font-size: 1.05rem; }
+  .nav-logo-tag { display: none; }
+
+  /* Hero */
+  #hero { padding: 80px 0 48px; min-height: auto; }
+  .hero-h1 { font-size: clamp(2rem, 8.5vw, 2.8rem); margin-bottom: 12px; }
+  .hero-sub { font-size: 0.75rem; margin-bottom: 16px; }
+  .hero-desc { font-size: 0.95rem; margin-bottom: 28px; line-height: 1.65; }
+  .hero-badge { font-size: 0.7rem; padding: 6px 14px 6px 8px; margin-bottom: 20px; }
+
+  /* Hero buttons */
+  .hero-btns { flex-direction: column; gap: 10px; margin-bottom: 32px; }
+  .hero-btns .btn { justify-content: center; width: 100%; padding: 14px 20px; font-size: 0.875rem; }
+
+  /* Hero stats — 2×2 grid */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--bdr);
+    border: 1px solid var(--bdr);
+    border-radius: var(--r-md);
+    overflow: hidden;
+  }
+  .hstat {
+    background: var(--surf);
+    padding: 16px 12px;
+    border: none;
+    text-align: center;
+  }
+  .hstat-num { font-size: 1.4rem; }
+  .hstat-lbl { font-size: 0.65rem; }
+
+  /* Section headings */
+  .sec-title { font-size: clamp(1.7rem, 7vw, 2.2rem); margin-bottom: 16px; }
+  .sec-desc { font-size: 0.9rem; }
+  .eyebrow { font-size: 0.65rem; }
+
+  /* About metrics */
+  .met-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .met-tile { padding: 20px 16px; }
+  .met-tile:first-child { grid-column: span 2; }
+  .met-num { font-size: 1.9rem; }
+
+  /* About feature list */
+  .afl-item { padding: 14px 16px; gap: 12px; }
+  .afl-ic { width: 36px; height: 36px; font-size: 0.85rem; }
+  .afl-txt h4 { font-size: 0.82rem; }
+  .afl-txt p { font-size: 0.75rem; }
+
+  /* Branches */
+  .branches-grid { grid-template-columns: 1fr; gap: 16px; }
+  .bcard { padding: 24px 20px; gap: 12px; }
+  .bc-name { font-size: 1.2rem; }
+  .loc-status { font-size: 0.8rem; margin-bottom: 32px; }
+
+  /* Systems */
+  .sys-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 36px; }
+  .sys-card { padding: 22px 20px; }
+  .sys-card h3 { font-size: 0.95rem; }
+
+  /* Testimonials */
+  .testi-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
+  .tcard { padding: 22px 20px; }
+  .tcard-text { font-size: 0.875rem; }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .c-panel { padding: 24px 20px; border-radius: var(--r-lg); }
+  .c-panel h3 { font-size: 1.3rem; }
+  .c-panel > p { font-size: 0.82rem; }
+  .cp-btns { gap: 10px; }
+  .ci-item { padding: 14px 12px; gap: 12px; }
+  .ci-ic { width: 38px; height: 38px; font-size: 0.85rem; }
+  .ci-item p { font-size: 0.85rem; word-break: break-all; }
+
+  /* Footer */
+  .ft-grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 36px; }
+  .ft-bottom { flex-direction: column; text-align: center; gap: 8px; padding: 16px 0; }
+  .ft-desc { max-width: 100%; }
+
+  /* Mobile nav panel polish */
+  .mobile-nav { padding: 72px 24px 36px; width: min(320px, 88vw); }
+  .mobile-nav a { font-size: 1.1rem; padding: 14px 0; }
+  .mobile-nav .m-cta { padding: 15px 24px; font-size: 0.95rem; }
+}
+
+/* Tiny screens (< 380px) */
+@media(max-width:380px){
+  .wrap { padding: 0 14px; }
+  .hero-h1 { font-size: clamp(1.75rem, 8vw, 2.2rem); }
+  .hero-btns .btn { padding: 13px 16px; font-size: 0.82rem; }
+  .hstat-num { font-size: 1.25rem; }
+  .met-num { font-size: 1.6rem; }
+  .sec-title { font-size: clamp(1.55rem, 7.5vw, 2rem); }
+  .bcard { padding: 20px 16px; }
+  .sys-card, .tcard { padding: 18px 16px; }
+  .c-panel { padding: 20px 16px; }
+  .nav-logo-name { font-size: 0.95rem; }
 }
 
 /* LIGHT FINE-TUNE */
@@ -712,6 +799,10 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:64px 0 0;}
 <div class="mob-overlay" id="mobOverlay"></div>
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close icon-btn" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
+  <div class="mobile-nav-brand">
+    <span class="mobile-nav-brand-name">Newtons Hospitals</span>
+    <span class="mobile-nav-brand-tag">No.1 AI</span>
+  </div>
   <a href="#hero" onclick="closeMob()">Home</a>
   <a href="#about" onclick="closeMob()">About</a>
   <a href="#branches" onclick="closeMob()">Branches</a>
