@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Newtons Ai Hospitals, Dr. Shiva Kolli | founder of Newtons Ai. Discover how our AI-powered hospital is revolutionizing healthcare.">
-    <title>Newtons Ai Hospitals | Dr. Shiva Kolli | Revolutionizing Healthcare</title>
+    <meta name="description" content="Welcome to Newtons Hospitals, with AI. Led by Dr. Shiva Kolli. Discover how our AI-powered hospitals are revolutionizing healthcare.">
+    <title>Newtons Hospitals | with AI | Dr. Shiva Kolli</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,7 +79,10 @@
         }
 
         .header-content { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-        .logo { font-weight: 800; font-size: 1.5rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        
+        .logo-container { display: flex; flex-direction: column; text-decoration: none; justify-content: center; }
+        .logo { font-weight: 800; font-size: 1.5rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; }
+        .logo-subtext { font-size: 0.75rem; font-weight: 800; color: var(--secondary); letter-spacing: 0.1em; text-transform: uppercase; }
 
         nav ul { display: flex; gap: 32px; list-style: none; padding: 0; margin: 0; }
         nav a { color: var(--text-muted); font-weight: 600; font-size: 0.95rem; padding: 8px 0; position: relative; }
@@ -106,9 +109,13 @@
 
         .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 20px; }
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-bottom: 24px;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-bottom: 5px;
             letter-spacing: -0.02em; background: linear-gradient(to right, var(--text-main) 20%, var(--primary) 80%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-sub-brand {
+            font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 800; color: var(--secondary);
+            text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px;
         }
         .hero-subtitle { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--text-muted); margin-bottom: 40px; font-weight: 500; }
         .name-highlight { color: var(--primary); font-weight: 700; }
@@ -180,7 +187,7 @@
 
         /* --- Footer --- */
         footer { background: #0F172A; color: #F8FAFC; padding: 80px 0 30px; }
-        footer h3 { color: white; }
+        footer h3 { color: white; margin-bottom: 5px; }
         footer p, footer a { color: #94A3B8; }
         footer a:hover { color: var(--secondary); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; }
@@ -216,7 +223,10 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">Newtons Ai</a>
+                <a href="#" class="logo-container">
+                    <span class="logo">Newtons Hospitals</span>
+                    <span class="logo-subtext">with AI</span>
+                </a>
                 <nav class="nav-desktop">
                     <ul>
                         <li><a href="#hero">Home</a></li>
@@ -263,9 +273,10 @@
         
         <div class="container">
             <div class="hero-content fade-in">
-                <h1 class="hero-title">Newtons Ai Hospitals</h1>
+                <h1 class="hero-title">Newtons Hospitals</h1>
+                <div class="hero-sub-brand">with AI</div>
                 <p class="hero-subtitle">
-                    Led by <span class="name-highlight">Dr. Shiva Kolli</span> | Revolutionizing Healthcare with Intelligence.
+                    Led by <span class="name-highlight">Dr. Shiva Kolli</span> | Revolutionizing Healthcare for Everyone.
                 </p>
                 
                 <!-- Main Action Row -->
@@ -273,7 +284,6 @@
                     <button id="main-visit-btn" onclick="visitNearest()" class="btn btn-visit">
                         <i class="fa-solid fa-person-walking"></i> Visit Nearest Branch
                     </button>
-                    <!-- UPDATED LINK -->
                     <a href="https://store.newtons.in" target="_blank" class="btn btn-primary">
                         <i class="fa-solid fa-handshake"></i> Apply for Franchise
                     </a>
@@ -285,7 +295,7 @@
                         <i class="fa-solid fa-location-dot"></i> Our Branches
                     </a>
                     <a href="https://newtons.in" target="_blank" class="btn btn-secondary">
-                        <i class="fa-solid fa-brain"></i> Newtons Ai
+                        <i class="fa-solid fa-brain"></i> AI Platform
                     </a>
                     <a href="https://hms.newtons.in" target="_blank" class="btn btn-secondary">
                         <i class="fa-solid fa-laptop-medical"></i> Hospital OS
@@ -300,7 +310,7 @@
     <section id="about">
         <div class="container">
             <h2 class="section-heading fade-in">The Future of Medicine</h2>
-            <p class="section-subheading fade-in">Dr. Shiva Kolli and Newtons Ai are bridging the gap between clinical expertise and artificial intelligence.</p>
+            <p class="section-subheading fade-in">Dr. Shiva Kolli and Newtons Hospitals are bridging the gap between clinical expertise and artificial intelligence.</p>
             
             <div class="fade-in">
                 <p style="text-align: center; max-width: 800px; margin: 0 auto;">
@@ -441,7 +451,7 @@
                     </div>
                     <div class="testimonial-card">
                         <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 10px;"></i>
-                        <p>"Newtons Ai Hospitals represents the future. The seamless integration of tech is remarkable."</p>
+                        <p>"Newtons Hospitals represents the future. The seamless integration of tech is remarkable."</p>
                         <h4>R. Singh</h4>
                     </div>
                     <div class="testimonial-card">
@@ -502,7 +512,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3>Newtons Ai</h3>
+                    <h3>Newtons Hospitals</h3>
+                    <div style="font-size: 0.75rem; color: var(--secondary); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 15px;">with AI</div>
                     <p>"AI won’t replace doctors. But doctors who use AI will replace those who don’t."</p>
                 </div>
                 <div>
@@ -511,7 +522,6 @@
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#branches">Our Branches</a></li>
                         <li><a href="#ai-systems">Services</a></li>
-                        <!-- UPDATED LINK -->
                         <li><a href="https://store.newtons.in">Franchise</a></li>
                     </ul>
                 </div>
@@ -524,7 +534,7 @@
                 </div>
             </div>
             <div style="border-top: 1px solid #334155; padding-top: 20px; text-align: center; font-size: 0.9rem;">
-                <p>© <span id="currentYear"></span> Newtons Ai Hospitals. Made with <span class="heart"><i class="fa-solid fa-heart"></i></span> by Newtons Ai.</p>
+                <p>© <span id="currentYear"></span> Newtons Hospitals. Made with <span class="heart"><i class="fa-solid fa-heart"></i></span> by Newtons.</p>
                 <div style="margin-top: 10px; color: #64748B;">Nandigama | Madhira | Jaggayyapeta</div>
             </div>
         </div>
