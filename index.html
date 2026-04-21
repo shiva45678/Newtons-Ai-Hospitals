@@ -7,7 +7,7 @@
 <title>Newtons Hospitals | No.1 AI Hospitals</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
 :root {
@@ -175,6 +175,10 @@ section{padding:110px 0;position:relative;z-index:2;}
 .sec-title{font-family:var(--f-display);font-size:clamp(2.1rem,4.2vw,3rem);font-weight:700;color:var(--txt);letter-spacing:-.02em;line-height:1.12;margin-bottom:18px;}
 .sec-title em{font-style:italic;color:var(--accent);}
 .sec-desc{font-size:1rem;color:var(--txt2);line-height:1.85;max-width:540px;}
+.tel{font-family:'Noto Sans Telugu',sans-serif;color:var(--txt3);font-weight:500;font-size:.88rem;line-height:1.8;margin-top:4px;display:block;}
+.sec-title .tel{font-size:.82rem;font-style:normal;-webkit-text-fill-color:var(--txt3);}
+.hero-desc .tel{font-size:.9rem;margin-top:8px;display:block;line-height:1.9;}
+.c-panel .tel{font-size:.82rem;margin-top:4px;}
 .center{text-align:center;}
 .center .eyebrow{justify-content:center;}
 .center .sec-desc{margin:0 auto;}
@@ -394,7 +398,7 @@ footer{background:var(--bg3);border-top:1px solid var(--bdr);padding:60px 0 28px
         </div>
         <h1 class="hero-h1 reveal d1"><em>Newtons</em><br>Hospitals</h1>
         <p class="hero-sub reveal d2">No.1 AI Hospitals</p>
-        <p class="hero-desc reveal d3">Led by <b>Dr. Shiva Kolli</b> — where clinical precision meets artificial intelligence. Faster diagnosis, smarter treatment, and genuine human care.</p>
+        <p class="hero-desc reveal d3">Led by <b>Dr. Shiva Kolli</b> — where clinical precision meets artificial intelligence. Faster diagnosis, smarter treatment, and genuine human care.<span class="tel">డా. శివ కొల్లి నేతృత్వంలో — AI ఆధారిత వైద్యం. వేగవంతమైన రోగ నిర్ధారణ, తెలివైన చికిత్స, నిజమైన సంరక్షణ.</span></p>
         <div class="hero-btns reveal d4">
           <button class="btn btn-success" id="main-visit-btn" onclick="visitNearest()"><i class="fa-solid fa-person-walking"></i> Visit Nearest Branch</button>
           <a href="https://store.newtons.in" target="_blank" class="btn btn-primary"><i class="fa-solid fa-handshake"></i> Apply for Franchise</a>
@@ -462,8 +466,8 @@ footer{background:var(--bg3);border-top:1px solid var(--bdr);padding:60px 0 28px
     <div class="about-grid">
       <div>
         <div class="eyebrow reveal">Our Mission</div>
-        <h2 class="sec-title reveal d1">Medicine,<br><em>reimagined</em></h2>
-        <p class="sec-desc reveal d2">We bridge clinical expertise and artificial intelligence — empowering doctors with intelligent tools so every patient receives faster, more accurate, and deeply personal care.</p>
+        <h2 class="sec-title reveal d1">Medicine,<br><em>reimagined</em><br><span class="tel">వైద్యం, కొత్తగా ఊహించబడింది</span></h2>
+        <p class="sec-desc reveal d2">We bridge clinical expertise and artificial intelligence — empowering doctors with intelligent tools so every patient receives faster, more accurate, and deeply personal care.<span class="tel">వైద్య నైపుణ్యం మరియు AI ని అనుసంధానం చేసి — ప్రతి రోగికి వేగవంతమైన, ఖచ్చితమైన సంరక్షణ అందిస్తాము.</span></p>
         <div class="afl reveal d3">
           <div class="afl-item">
             <div class="afl-ic ic-b"><i class="fa-solid fa-brain"></i></div>
@@ -498,7 +502,7 @@ footer{background:var(--bg3);border-top:1px solid var(--bdr);padding:60px 0 28px
   <div class="wrap">
     <div class="center">
       <div class="eyebrow reveal">Regional Centers</div>
-      <h2 class="sec-title reveal d1">Our <em>Locations</em></h2>
+      <h2 class="sec-title reveal d1">Our <em>Locations</em><br><span class="tel">మా శాఖలు</span></h2>
       <p class="loc-status reveal d2" id="location-status"><i class="fa-solid fa-location-crosshairs"></i> Detecting your nearest branch…</p>
     </div>
     <div class="branches-grid">
@@ -535,14 +539,14 @@ footer{background:var(--bg3);border-top:1px solid var(--bdr);padding:60px 0 28px
   <div class="wrap">
     <div class="center">
       <div class="eyebrow reveal">Technology</div>
-      <h2 class="sec-title reveal d1">Intelligent <em>Ecosystem</em></h2>
-      <p class="sec-desc reveal d2">A full suite of AI tools designed to elevate every touchpoint — from first visit to follow-up.</p>
+      <h2 class="sec-title reveal d1">Intelligent <em>Ecosystem</em><br><span class="tel">తెలివైన సాంకేతిక వ్యవస్థ</span></h2>
+      <p class="sec-desc reveal d2">A full suite of AI tools designed to elevate every touchpoint — from first visit to follow-up.<span class="tel">మొదటి సందర్శన నుండి ఫాలో-అప్ వరకు — AI సాధనాల పూర్తి సూట్.</span></p>
     </div>
     <div class="sys-grid">
       <div class="sys-card feat reveal d1">
         <div class="sys-ic ic-a"><i class="fa-solid fa-crown"></i></div>
         <h3>Gold Membership</h3>
-        <p>Unlimited free consultations, priority booking, and 80% discounts on all medications at every Newtons center.</p>
+        <p>Unlimited free consultations, priority booking, and 80% discounts on all medications at every Newtons center.<span class="tel">అన్ని మందులపై 80% తగ్గింపు, అపరిమిత ఉచిత సంప్రదింపులు.</span></p>
         <span class="sys-price">₹100 / month</span>
       </div>
       <div class="sys-card reveal d2">
@@ -579,7 +583,7 @@ footer{background:var(--bg3);border-top:1px solid var(--bdr);padding:60px 0 28px
   <div class="wrap">
     <div class="center">
       <div class="eyebrow reveal">Patient Stories</div>
-      <h2 class="sec-title reveal d1">Heard from <em>real patients</em></h2>
+      <h2 class="sec-title reveal d1">Heard from <em>real patients</em><br><span class="tel">నిజమైన రోగుల అనుభవాలు</span></h2>
     </div>
     <div class="testi-grid">
       <div class="tcard reveal d1">
@@ -616,8 +620,8 @@ footer{background:var(--bg3);border-top:1px solid var(--bdr);padding:60px 0 28px
     <div class="contact-grid">
       <div>
         <div class="eyebrow reveal">Get in Touch</div>
-        <h2 class="sec-title reveal d1">We're here<br><em>for you</em></h2>
-        <p class="sec-desc reveal d2">Reach out to book an appointment, explore a franchise, or learn more about what makes Newtons Hospitals different.</p>
+        <h2 class="sec-title reveal d1">We're here<br><em>for you</em><br><span class="tel">మేము మీ కోసం ఉన్నాము</span></h2>
+        <p class="sec-desc reveal d2">Reach out to book an appointment, explore a franchise, or learn more about what makes Newtons Hospitals different.<span class="tel">అపాయింట్‌మెంట్ బుక్ చేయడానికి లేదా ఫ్రాంచైజీ గురించి తెలుసుకోవడానికి మమ్మల్ని సంప్రదించండి.</span></p>
         <div class="ci-list reveal d3">
           <div class="ci-item">
             <div class="ci-ic ic-b"><i class="fa-solid fa-location-dot"></i></div>
@@ -634,8 +638,8 @@ footer{background:var(--bg3);border-top:1px solid var(--bdr);padding:60px 0 28px
         </div>
       </div>
       <div class="c-panel reveal d2">
-        <h3>Ready to experience AI healthcare?</h3>
-        <p>Book an appointment at your nearest center or bring Newtons Hospitals to your city through a franchise.</p>
+        <h3>Ready to experience AI healthcare?<span class="tel">AI వైద్యాన్ని అనుభవించడానికి సిద్ధంగా ఉన్నారా?</span></h3>
+        <p>Book an appointment at your nearest center or bring Newtons Hospitals to your city through a franchise.<span class="tel">మీ సమీపంలోని సెంటర్‌లో అపాయింట్‌మెంట్ బుక్ చేసుకోండి.</span></p>
         <div class="cp-btns">
           <a href="mailto:drnewtonsai@gmail.com" class="btn btn-primary btn-full"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
           <a href="https://store.newtons.in" target="_blank" class="btn btn-success btn-full"><i class="fa-solid fa-handshake"></i> Apply for Franchise</a>
