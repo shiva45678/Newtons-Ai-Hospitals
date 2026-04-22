@@ -856,7 +856,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:64px 0 0;}
         <p class="hero-desc reveal d3">Led by <b>Dr. Shiva Kolli</b> — where clinical precision meets artificial intelligence. Faster diagnosis, smarter treatment, and genuine human care.</p>
         <div class="hero-btns reveal d4">
           <button class="btn btn-success" id="main-visit-btn" onclick="visitNearest()"><i class="fa-solid fa-person-walking"></i> Visit Nearest Branch</button>
-          <a href="https://store.newtons.in" target="_blank" class="btn btn-primary"><i class="fa-solid fa-handshake"></i> Apply for Franchise</a>
+          <a href="https://hms.newtons.in/patient-login" target="_blank" class="btn btn-primary"><i class="fa-solid fa-file-medical"></i> View Reports</a>
+          <a href="https://store.newtons.in" target="_blank" class="btn btn-ghost"><i class="fa-solid fa-handshake"></i> Franchise</a>
           <a href="https://hms.newtons.in" target="_blank" class="btn btn-ghost"><i class="fa-solid fa-laptop-medical"></i> Hospital OS</a>
         </div>
         <div class="hero-stats reveal d5">
@@ -940,7 +941,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:64px 0 0;}
       <div class="bcard reveal d2" id="branch-nandigama">
         <span class="n-badge">Nearest ✦</span>
         <div class="bc-icon"><i class="fa-solid fa-hospital-user"></i></div>
-        <div class="bc-name">Nandigama</div>
+        <div class="bc-name">Nandigama Branch</div>
         <div class="bc-addr">Opposite to Post Office,<br>Nandigama 521185, AP</div>
         <div class="bc-dist" id="dist-nandigama"><i class="fa-solid fa-location-dot"></i> Calculating…</div>
         <a href="https://maps.app.goo.gl/KcXwc2S9wxxdP7L78" target="_blank" class="bc-dir">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
@@ -948,7 +949,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:64px 0 0;}
       <div class="bcard reveal d3" id="branch-madhira">
         <span class="n-badge">Nearest ✦</span>
         <div class="bc-icon"><i class="fa-solid fa-hospital"></i></div>
-        <div class="bc-name">Madhira</div>
+        <div class="bc-name">Madhira Branch</div>
         <div class="bc-addr">Main Road, Madhira,<br>Telangana</div>
         <div class="bc-dist" id="dist-madhira"><i class="fa-solid fa-location-dot"></i> Calculating…</div>
         <a href="https://maps.app.goo.gl/LqNdd9KyEroNP8iS7" target="_blank" class="bc-dir">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
@@ -956,7 +957,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:64px 0 0;}
       <div class="bcard reveal d4" id="branch-jaggayyapeta">
         <span class="n-badge">Nearest ✦</span>
         <div class="bc-icon"><i class="fa-solid fa-clinic-medical"></i></div>
-        <div class="bc-name">Jaggayyapeta</div>
+        <div class="bc-name">Jaggayyapeta Branch</div>
         <div class="bc-addr">Town Center,<br>Andhra Pradesh</div>
         <div class="bc-dist" id="dist-jaggayyapeta"><i class="fa-solid fa-location-dot"></i> Calculating…</div>
         <a href="https://www.google.com/maps/search/Newtons+Ai+Hospital+Jaggayyapeta" target="_blank" class="bc-dir">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
@@ -1143,8 +1144,8 @@ function findNearest(){
     if(nc)nc.classList.add('nearest');
     const name=nid.charAt(0).toUpperCase()+nid.slice(1);
     const vb=document.getElementById('main-visit-btn');
-    if(vb)vb.innerHTML=`<i class="fa-solid fa-map-location-dot"></i> Directions to ${name}`;
-    setStatus(`<i class="fa-solid fa-circle-check" style="color:var(--green)"></i> <b>${name}</b> branch is closest to you.`);
+    if(vb)vb.innerHTML=`<i class="fa-solid fa-map-location-dot"></i> Directions to ${name} Branch`;
+    setStatus(`<i class="fa-solid fa-circle-check" style="color:var(--green)"></i> <b>${name} Branch</b> is closest to you.`);
   },()=>{setStatus('<i class="fa-solid fa-triangle-exclamation"></i> Allow location access to find nearest branch.');});
 }
 function visitNearest(){window.open(nearestLink,'_blank');}
