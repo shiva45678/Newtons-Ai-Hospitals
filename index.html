@@ -262,6 +262,28 @@ a{text-decoration:none;color:inherit;}
   color: var(--txt);
   border-color: var(--accent);
 }
+.btn-highlight {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--txt);
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.15);
+}
+.btn-highlight:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 18px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
+[data-theme="light"] .btn-highlight {
+  background: rgba(37, 99, 235, 0.06);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+[data-theme="light"] .btn-highlight:hover {
+  background: var(--accent);
+  color: #fff;
+}
 .btn-full {
   width: 100%;
   justify-content: center;
@@ -312,6 +334,7 @@ a{text-decoration:none;color:inherit;}
   display: flex;
   gap: 12px;
   margin-bottom: 48px;
+  flex-wrap: wrap;
 }
 .hero-stats {
   display: flex;
@@ -856,9 +879,9 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:64px 0 0;}
         <p class="hero-desc reveal d3">Led by <b>Dr. Shiva Kolli</b> — where clinical precision meets artificial intelligence. Faster diagnosis, smarter treatment, and genuine human care.</p>
         <div class="hero-btns reveal d4">
           <button class="btn btn-success" id="main-visit-btn" onclick="visitNearest()"><i class="fa-solid fa-person-walking"></i> Visit Nearest Branch</button>
-          <a href="https://hms.newtons.in/patient-login" target="_blank" class="btn btn-primary"><i class="fa-solid fa-file-medical"></i> View Reports</a>
-          <a href="https://store.newtons.in" target="_blank" class="btn btn-ghost"><i class="fa-solid fa-handshake"></i> Franchise</a>
-          <a href="https://hms.newtons.in" target="_blank" class="btn btn-ghost"><i class="fa-solid fa-laptop-medical"></i> Hospital OS</a>
+          <a href="https://store.newtons.in" target="_blank" class="btn btn-highlight"><i class="fa-solid fa-handshake"></i> Franchise Store</a>
+          <a href="https://hms.newtons.in" target="_blank" class="btn btn-highlight"><i class="fa-solid fa-laptop-medical"></i> AI Hospital Management (HMS)</a>
+          <a href="https://cms.newtons.in" target="_blank" class="btn btn-ghost"><i class="fa-solid fa-house-chimney-medical"></i> Newtons CMS (Clinic Software)</a>
         </div>
         <div class="hero-stats reveal d5">
           <div class="hstat"><span class="hstat-num">1L+</span><div class="hstat-lbl">Cases</div></div>
@@ -998,8 +1021,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:64px 0 0;}
       </div>
       <div class="sys-card reveal d5">
         <div class="sys-ic ic-t"><i class="fa-solid fa-hospital-user"></i></div>
-        <h3>Hospital OS</h3>
-        <p>End-to-end management system optimizing operations, scheduling, and bed availability.</p>
+        <h3>AI Hospital Management (HMS)</h3>
+        <p>End-to-end management system optimizing clinical operations, scheduling, and bed availability.</p>
       </div>
       <div class="sys-card reveal d6">
         <div class="sys-ic ic-r"><i class="fa-solid fa-file-medical"></i></div>
@@ -1103,7 +1126,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:64px 0 0;}
       <div class="ft-col">
         <h5>Platforms</h5>
         <a href="https://newtons.in" target="_blank">AI Platform</a>
-        <a href="https://hms.newtons.in" target="_blank">Hospital OS</a>
+        <a href="https://hms.newtons.in" target="_blank">AI Hospital Management (HMS)</a>
+        <a href="https://cms.newtons.in" target="_blank">Newtons CMS (Clinic Software)</a>
         <a href="https://store.newtons.in" target="_blank">Franchise Store</a>
       </div>
     </div>
